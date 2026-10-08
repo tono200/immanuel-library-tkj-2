@@ -8,12 +8,8 @@
 </head>
 <body>
   <?php
-  $user = [
-      "id"    => 2,
-      "name"  => "Budi Santoso",
-      "email" => "budi.santoso@siswa.ski.sch.id",
-      "role"  => "member",
-  ];
+    require '../../repositories/user-repository.php';
+    $user = getUser();
   ?>
   <div class="app-shell">
   <?php require_once('../../components/admin/sidebar.php'); ?>

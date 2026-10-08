@@ -8,7 +8,8 @@
 </head>
 <body>
   <?php
-  $user = ["id" => 2, "name" => "Budi Santoso", "email" => "budi.santoso@siswa.ski.sch.id", "role" => "member"];
+    require '../../repositories/user-repository.php';
+    $users = getUsers();
   ?>
   <div class="app-shell">
   <?php require_once('../../components/admin/sidebar.php'); ?>
@@ -43,6 +44,7 @@
               </tr>
             </thead>
             <tbody>
+              <?php foreach ($users as $user) : ?>
               <tr>
                 <td>
                   <div class="cell-primary">
@@ -65,6 +67,7 @@
                   </div>
                 </td>
               </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
