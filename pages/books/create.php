@@ -8,7 +8,6 @@
 </head>
 <body>
   <?php
-  // Data kategori & penulis dummy untuk mengisi dropdown/checkbox di form
   $categories = ["Fiksi", "Sains", "Sejarah", "Teknologi"];
   $authors = ["Andrea Hirata", "Tere Liye", "J.K. Rowling", "Pramoedya Ananta Toer", "Sapardi Djoko Damono"];
   ?>
@@ -22,7 +21,7 @@
     ?>
 
       <div class="app-content">
-        <form method="" action="">
+        <form method="POST" action="../../actions/books/store.php">
           <div class="form-card" style="margin-bottom:20px;">
             <div class="form-section-title">Data Buku</div>
             <div class="form-group">
