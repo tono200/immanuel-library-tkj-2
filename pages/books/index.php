@@ -20,7 +20,7 @@
   ];
   ?>
   <div class="app-shell">
-    <?php require_once __DIR__ . '/../../components/admin/topbar.php'; ?>
+    <?php require_once __DIR__ . '/../../components/admin/sidebar.php'; ?>
 
     <main class="app-main">
       <header class="app-topbar">
