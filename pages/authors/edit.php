@@ -10,11 +10,8 @@
 
 <body>
   <?php
-  $author = [
-    "id" => 1,
-    "name" => "Andrea Hirata",
-    "bio" => "Penulis asal Belitung, dikenal lewat novel Laskar Pelangi.",
-  ];
+    require '../../repositories/author-repository.php';
+    $author = getAuthor();
   ?>
   <?php require_once('../../components/admin/sidebar.php'); ?>
 
@@ -26,7 +23,7 @@
     ?>
 
       <div class="app-content">
-        <form method="" action="">
+        <form method="POST" action="../../actions/authors/update.php">
           <input type="hidden" name="id" value="<?= $author['id'] ?>">
           <div class="form-card">
             <div class="form-section-title">Data Penulis</div>
