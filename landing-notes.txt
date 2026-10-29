@@ -1,0 +1,15 @@
+1. Apa keuntungan memisahkan header dan footer menjadi file component tersendiri, dibandingkan menuliskannya langsung berulang-ulang di index.php?
+
+Pemisahan header.php dan footer.php ke dalam folder components/landing/ memberikan efisiensi struktur kode yang signifikan. Alih-alih menulis ulang markup yang sama di setiap halaman, kode tersebut cukup didefinisikan satu kali dan dipanggil menggunakan require_once. Keuntungannya meliputi:
+
+Kemudahan Pemeliharaan (Maintainability): Saat ada penambahan menu navigasi atau pembaruan teks hak cipta, perubahan cukup dilakukan pada satu file pusat dan otomatis diterapkan ke seluruh halaman.
+
+Konsistensi Tampilan: Meminimalisir risiko inkonsistensi antarhalaman yang sering terjadi akibat ada bagian yang terlewat saat penyuntingan manual.
+
+Keterbacaan Kode: Berkas utama (index.php) menjadi lebih bersih, ringkas, dan berfokus penuh pada konten inti (seperti hero section, statistik, dan fitur), sehingga lebih mudah dibaca dan dikelola.
+
+2. Bagian mana pada halaman-halaman admin (Buku, Kategori, Penulis, Pengguna, Profil) yang mengalami masalah yang sama seperti header/footer sebelum dipisah?
+
+Bagian yang mengalami duplikasi serupa adalah komponen navigasi utama, yaitu sidebar (elemen <aside> untuk menu navigasi) dan topbar (elemen <header> untuk judul dan informasi profil). Sebelum dipisah, kedua elemen ini disalin secara identik ke dalam 14 file halaman admin yang berbeda.
+
+Dampaknya, setiap kali ada penambahan atau perubahan menu, proses penyuntingan harus dilakukan satu per satu pada 14 file tersebut, yang sangat rentan terhadap kesalahan (human error). Topbar sendiri sebenarnya memiliki struktur serupa, hanya berbeda pada variabel judul ($pageTitle) dan subjudul ($pageSubtitle), sehingga sangat ideal untuk dijadikan komponen dinamis. Selain itu, pengelolaan data admin pada saat itu masih menggunakan array statis di masing-masing file, belum terpusat melalui fungsi repository.
